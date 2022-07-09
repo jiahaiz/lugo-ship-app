@@ -1,4 +1,3 @@
-
 import * as AWS from 'aws-sdk';
 import AWSXRay from 'aws-xray-sdk';
 
@@ -10,11 +9,11 @@ let _dynamoDB;
  * @returns {object} DynamoDB Client
  */
 const dynamoDB = () => {
-    if (!_dynamoDB) {
-        _dynamoDB = new AWS.DynamoDB.DocumentClient();
-        AWSXRay.captureAWSClient(_dynamoDB.service);
-    }
-    return _dynamoDB;
+  if (!_dynamoDB) {
+    _dynamoDB = new AWS.DynamoDB.DocumentClient();
+    AWSXRay.captureAWSClient(_dynamoDB.service);
+  }
+  return _dynamoDB;
 };
 
 let _s3;
@@ -25,10 +24,10 @@ let _s3;
  * @returns {object} Amazon S3 Client
  */
 const s3 = () => {
-    if (!_s3) {
-        _s3 = AWSXRay.captureAWSClient(new AWS.S3());
-    }
-    return _s3;
+  if (!_s3) {
+    _s3 = AWSXRay.captureAWSClient(new AWS.S3());
+  }
+  return _s3;
 };
 
 let _textract;
@@ -39,10 +38,10 @@ let _textract;
  * @returns {object} Textract Client
  */
 const textract = () => {
-    if (!_textract) {
-        _textract = AWSXRay.captureAWSClient(new AWS.Textract());
-    }
-    return _textract;
+  if (!_textract) {
+    _textract = AWSXRay.captureAWSClient(new AWS.Textract());
+  }
+  return _textract;
 };
 
 let _ses;
@@ -53,10 +52,10 @@ let _ses;
  * @returns {object} Simple Email Service Client
  */
 const ses = () => {
-    if (!_ses) {
-        _ses = AWSXRay.captureAWSClient(new AWS.SES());
-    }
-    return _ses;
+  if (!_ses) {
+    _ses = AWSXRay.captureAWSClient(new AWS.SES());
+  }
+  return _ses;
 };
 
 let _eventbridge;
@@ -67,10 +66,10 @@ let _eventbridge;
  * @returns {object} Eventbridge Client
  */
 const eventbridge = () => {
-    if (!_eventbridge) {
-        _eventbridge = AWSXRay.captureAWSClient(new AWS.EventBridge());
-    }
-    return _eventbridge;
+  if (!_eventbridge) {
+    _eventbridge = AWSXRay.captureAWSClient(new AWS.EventBridge());
+  }
+  return _eventbridge;
 };
 
 let _cisp;
@@ -81,17 +80,17 @@ let _cisp;
  * @returns {object} Cognito Identity Service Provider Client
  */
 const cisp = () => {
-    if (!_cisp) {
-        _cisp = AWSXRay.captureAWSClient(new AWS.CognitoIdentityServiceProvider());
-    }
-    return _cisp;
+  if (!_cisp) {
+    _cisp = AWSXRay.captureAWSClient(new AWS.CognitoIdentityServiceProvider());
+  }
+  return _cisp;
 };
 
 export const AWSClients = {
-    dynamoDB,
-    s3,
-    textract,
-    ses,
-    eventbridge,
-    cisp,
+  dynamoDB,
+  s3,
+  textract,
+  ses,
+  eventbridge,
+  cisp,
 };

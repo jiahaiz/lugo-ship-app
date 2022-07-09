@@ -1,13 +1,13 @@
 import * as cdk from '@aws-cdk/core';
 import * as path from 'path';
 import * as dynamodb from '@aws-cdk/aws-dynamodb';
-import {PythonFunction} from "@aws-cdk/aws-lambda-python";
-import {ServiceFunction} from "../construcuts/lambda";
-import {NodejsServiceFunction} from "../construcuts/nodejs-lambda";
+import { PythonFunction } from "@aws-cdk/aws-lambda-python";
 import * as iam from '@aws-cdk/aws-iam';
 import { NodejsFunction } from '@aws-cdk/aws-lambda-nodejs';
 import * as s3 from '@aws-cdk/aws-s3';
 import * as cognito from '@aws-cdk/aws-cognito';
+import { NodejsServiceFunction } from "../construcuts/nodejs-lambda";
+import { ServiceFunction } from "../construcuts/lambda";
 
 interface AppServicesProps {
     documentsTable: dynamodb.ITable;
@@ -16,7 +16,6 @@ interface AppServicesProps {
     userPool: cognito.IUserPool;
 }
 export class AppServices extends cdk.Construct {
-
     public readonly testService: PythonFunction;
 
     public readonly usersService: NodejsFunction;
@@ -30,7 +29,6 @@ export class AppServices extends cdk.Construct {
 
         props.documentsTable.grantReadWriteData(this.testService);
 
-
         this.testService.addToRolePolicy(
             new iam.PolicyStatement({
                 resources: ['*'],
@@ -39,7 +37,6 @@ export class AppServices extends cdk.Construct {
         );
 
         this.testService.addEnvironment('DYNAMO_DB_TABLE', props.documentsTable.tableName);
-
 
         // Users Service ------------------------------------------------------
 
@@ -58,6 +55,4 @@ export class AppServices extends cdk.Construct {
             }),
         );
     }
-
-
 }

@@ -1,11 +1,11 @@
 import * as cdk from '@aws-cdk/core';
-import {AssetStorage} from "./storage";
-import {WebApp} from "./webapp";
-import {AppDatabase} from "./dynamodb";
-import {AppServices} from "./services";
-import {ApplicationTargetGroup} from "@aws-cdk/aws-elasticloadbalancingv2";
-import {ApplicationAPI} from "./api";
-import {ApplicationAuth} from "./auth";
+import { ApplicationTargetGroup } from "@aws-cdk/aws-elasticloadbalancingv2";
+import { AssetStorage } from "./storage";
+import { WebApp } from "./webapp";
+import { AppDatabase } from "./dynamodb";
+import { AppServices } from "./services";
+import { ApplicationAPI } from "./api";
+import { ApplicationAuth } from "./auth";
 
 export class ApplicationStack extends cdk.Stack {
     constructor(scope: cdk.Construct, id: string, props?: cdk.StackProps) {
@@ -18,7 +18,7 @@ export class ApplicationStack extends cdk.Stack {
         const database = new AppDatabase(this, 'Database');
 
         const services = new AppServices(this, 'Services', {
-            documentsTable:  database.testTable,
+            documentsTable: database.testTable,
             assetBucket: storage.assetBucket,
             userPool: auth.userPool,
         })

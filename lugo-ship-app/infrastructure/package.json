@@ -1,6 +1,7 @@
 {
   "name": "@lugo-ship/infrastructure",
   "version": "0.1.0",
+  "license": "MIT",
   "bin": {
     "infrastructure": "bin/infrastructure.js"
   },

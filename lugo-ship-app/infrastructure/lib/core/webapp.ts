@@ -52,7 +52,6 @@ export class WebApp extends cdk.Construct {
 
         props.hostingBucket.grantRead(oai);
 
-
         // Deploy Web App ----------------------------------------------------
 
         const deployment = new cwt.WebAppDeployment(this, 'WebAppDeploy', {
@@ -82,7 +81,5 @@ export class WebApp extends cdk.Construct {
             },
             globalVariableName: 'appConfig'
         }).node.addDependency(deployment);
-
     }
-
 }

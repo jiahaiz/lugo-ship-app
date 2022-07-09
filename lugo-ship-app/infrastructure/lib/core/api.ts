@@ -2,8 +2,8 @@ import * as cdk from '@aws-cdk/core';
 import * as lambda from '@aws-cdk/aws-lambda';
 import * as apigw from '@aws-cdk/aws-apigatewayv2';
 import * as cognito from '@aws-cdk/aws-cognito';
-import {CorsHttpMethod, HttpMethod} from '@aws-cdk/aws-apigatewayv2';
-import {HttpUserPoolAuthorizer} from '@aws-cdk/aws-apigatewayv2-authorizers';
+import { CorsHttpMethod, HttpMethod } from '@aws-cdk/aws-apigatewayv2';
+import { HttpUserPoolAuthorizer } from '@aws-cdk/aws-apigatewayv2-authorizers';
 import * as apigi from '@aws-cdk/aws-apigatewayv2-integrations';
 import * as iam from '@aws-cdk/aws-iam';
 import * as sqs from '@aws-cdk/aws-sqs';
@@ -69,7 +69,6 @@ export class ApplicationAPI extends cdk.Construct {
             authorizer,
         });
 
-
         // Users Service ------------------------------------------------------
 
         const usersServiceIntegration = new apigi.LambdaProxyIntegration({
@@ -89,6 +88,4 @@ export class ApplicationAPI extends cdk.Construct {
             value: this.httpApi.apiEndpoint
         });
     }
-
-
 }
