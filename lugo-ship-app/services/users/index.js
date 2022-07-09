@@ -58,7 +58,8 @@ const getSignedURL = async picture => {
     Key: picture,
     Expires: urlExpirySeconds,
   };
-  return await s3.getSignedUrlPromise('getObject', params);
+  const signedURL = await s3.getSignedUrlPromise('getObject', params);
+  return signedURL;
 };
 
 const transformUser = async user => {
