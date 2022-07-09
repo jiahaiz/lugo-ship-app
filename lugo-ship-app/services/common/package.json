@@ -1,5 +1,5 @@
 {
-  "name": "@ps-serverless/services-common",
+  "name": "@lugo-ship/services-common",
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",

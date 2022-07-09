@@ -1,5 +1,5 @@
 {
-  "name": "ps-serverless-app",
+  "name": "lugo-ship-app",
   "private": true,
   "workspaces": [
     "infrastructure",
